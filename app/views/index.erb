@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>Welcome to Sinatra!</h1>
+  <p>Hello, world!</p>
+
+  <table>
+    <tr>
+      <th>File Description</th>
+      <th>File Location</th>
+    </tr>
+    <tr>
+      <td>This view file</td>
+      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
+    </tr>
+    <tr>
+      <td>The layout file</td>
+      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+    </tr>
+    <tr>
+      <td>The current controller</td>
+      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+    </tr>
+  </table>
+</div>
+
+<form id="create_note" action="/" method="post">
+  <label>Note</label>
+  <input name="content" type="text">
+  <input type="submit" value="Create Note!"
+</form>
+
+<br>
+<br>
+
+<% Note.all.each do |note| %>
+<label>Note</label>
+<%= note.id %>
+<%= note.content %>
+<%= note.created_at %>
+<%= note.updated_at %>
+<form id="edit_note" action="/:id" method="get">
+  <!-- <label>Note</label> -->
+  <!-- <input name="content" type="text"> -->
+  <input type="submit" value="Edit Note!"
+</form>
+<br>
+<br>
+<% end %> 
