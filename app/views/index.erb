@@ -13,6 +13,7 @@
 <br>
 <br>
 
+<% @notes = Note.all %>
 <% @notes.each do |note| %>
 <label>Note</label>
 <%= note.id %>
@@ -21,19 +22,14 @@
 <%= note.updated_at %>
 
 <form id="show_note" action="/<%=note.id%>" method="get">
-  <!-- <label>Note</label> -->
-  <!-- <input name="content" type="text"> -->
   <input type="submit" value="Show Note!">  
 </form>
 
 <form id="edit" action="/<%=note.id%>/edit" method="get">
-  <!-- <label>Note</label> -->
-  <!-- <input name="content" type="text"> -->
   <input type="submit" value="Edit Note!">
 </form>
 
 <br>
 <br>
 <% end %> 
-
 </div>
